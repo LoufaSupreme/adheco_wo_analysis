@@ -204,9 +204,10 @@ def summarize(data):
     for year in data["years_seen"]:
         stats[year] = {
             "wo_count": len(filter_data(raw_data, None, False, year, None)),
+            "qtys": analyze_qty(filter_data(raw_data, None, False, year, None)),
             "late_count": len(filter_data(raw_data, None, True, year, None)),
             "late_qtys": analyze_qty(filter_data(raw_data, None, True, year, None)),
-            "late_duration": analyze_late_duration(filter_data(raw_data, None, True, year, None)),
+            "late_durations": analyze_late_duration(filter_data(raw_data, None, True, year, None)),
         }
 
         for converting_type in ["slit", "convert"]:
@@ -249,6 +250,7 @@ def print_excel_results(wb, results):
     wb.remove(ws)
     ws = create_worksheet(wb, "Results")
 
+    # print out monthly summary
     CONVERTING_TYPES = [
         "slit",
         "convert"
@@ -313,11 +315,136 @@ def print_excel_results(wb, results):
 
             col_count+=1
 
+    # print out annual summary
+    ANNUAL_HEADINGS = [
+        "WO Count",
+        "Total Qty",
+        "Avg Qty",
+        "Median Qty",
+
+        "Late WO Count",
+        "Late Qty",
+        "Late Avg Qty",
+        "Late Median Qty",
+        "Late Avg Duration",
+        "Late Median Duration",
+
+        "Slit WO Count",
+        "Slit Qty",
+        "Slit Avg Qty",
+        "Slit Median Qty",
+
+        "Late Slit WO Count",
+        "Late Slit Qty",
+        "Late Slit Avg Qty",
+        "Late Slit Median Qty",
+        "Late Slit Avg Duration",
+        "Late Slit Median Duration",
+       
+        "Convert WO Count",
+        "Convert Qty",
+        "Convert Avg Qty",
+        "Convert Median Qty",
+
+        "Late Convert WO Count",
+        "Late Convert Qty",
+        "Late Convert Avg Qty",
+        "Late Convert Median Qty",
+        "Late Convert Avg Duration",
+        "Late Convert Median Duration",
+    ]
+
+    # print headings
+    for idx, heading in enumerate(ANNUAL_HEADINGS):
+        ws.cell(row=len(HEADINGS)+3+idx+1, column=1).value = heading
+
+    # print values
+    col_count = 1
+    for year in results:
+        # year
+        ws.cell(row=len(HEADINGS)+3, column=col_count+1).value = year
+        # "WO Count",
+        ws.cell(row=len(HEADINGS)+3+1, column=col_count+1).value = results[year]["wo_count"]
+        # "Total Qty,
+        ws.cell(row=len(HEADINGS)+3+2, column=col_count+1).value = results[year]["qtys"]["sum"]
+        # "Avg Qty",
+        ws.cell(row=len(HEADINGS)+3+3, column=col_count+1).value = results[year]["qtys"]["avg"]
+        # "Median Qty",
+        ws.cell(row=len(HEADINGS)+3+4, column=col_count+1).value = results[year]["qtys"]["median"]
+        
+        if results[year]["late_qtys"]:
+            # "Late WO Count",
+            ws.cell(row=len(HEADINGS)+3+5, column=col_count+1).value = results[year]["late_qtys"]["wo_count"]
+            # "Late Qty",
+            ws.cell(row=len(HEADINGS)+3+6, column=col_count+1).value = results[year]["late_qtys"]["sum"]
+            # "Late Avg Qty",
+            ws.cell(row=len(HEADINGS)+3+7, column=col_count+1).value = results[year]["late_qtys"]["avg"]
+            # "Late Median Qty",
+            ws.cell(row=len(HEADINGS)+3+8, column=col_count+1).value = results[year]["late_qtys"]["median"]
+
+        if results[year]["late_durations"]:
+            # "Late Avg Duration",
+            ws.cell(row=len(HEADINGS)+3+9, column=col_count+1).value = results[year]["late_durations"]["avg"]
+            # "Late Median Duration",
+            ws.cell(row=len(HEADINGS)+3+10, column=col_count+1).value = results[year]["late_durations"]["median"]
+        
+        # "Slit WO Count",
+        ws.cell(row=len(HEADINGS)+3+11, column=col_count+1).value = results[year]["slit"]["qtys"]["wo_count"]
+        # "Slit Qty",
+        ws.cell(row=len(HEADINGS)+3+12, column=col_count+1).value = results[year]["slit"]["qtys"]["sum"]
+        # "Slit Avg Qty",
+        ws.cell(row=len(HEADINGS)+3+13, column=col_count+1).value = results[year]["slit"]["qtys"]["avg"]
+        # "Slit Median Qty",
+        ws.cell(row=len(HEADINGS)+3+14, column=col_count+1).value = results[year]["slit"]["qtys"]["median"]
+        
+        if results[year]["slit"]["late_qtys"]:
+            # "Late WO Count",
+            ws.cell(row=len(HEADINGS)+3+15, column=col_count+1).value = results[year]["slit"]["late_qtys"]["wo_count"]
+            # "Late Qty",
+            ws.cell(row=len(HEADINGS)+3+16, column=col_count+1).value = results[year]["slit"]["late_qtys"]["sum"]
+            # "Late Avg Qty",
+            ws.cell(row=len(HEADINGS)+3+17, column=col_count+1).value = results[year]["slit"]["late_qtys"]["avg"]
+            # "Late Median Qty",
+            ws.cell(row=len(HEADINGS)+3+18, column=col_count+1).value = results[year]["slit"]["late_qtys"]["median"]
+
+        if results[year]["slit"]["late_durations"]:
+            # "Late Avg Duration",
+            ws.cell(row=len(HEADINGS)+3+19, column=col_count+1).value = results[year]["slit"]["late_durations"]["avg"]
+            # "Late Median Duration",
+            ws.cell(row=len(HEADINGS)+3+20, column=col_count+1).value = results[year]["slit"]["late_durations"]["median"]
+       
+        # "Convert WO Count",
+        ws.cell(row=len(HEADINGS)+3+21, column=col_count+1).value = results[year]["convert"]["qtys"]["wo_count"]
+        # "Convert Qty",
+        ws.cell(row=len(HEADINGS)+3+22, column=col_count+1).value = results[year]["convert"]["qtys"]["sum"]
+        # "Convert Avg Qty",
+        ws.cell(row=len(HEADINGS)+3+23, column=col_count+1).value = results[year]["convert"]["qtys"]["avg"]
+        # "Convert Median Qty",
+        ws.cell(row=len(HEADINGS)+3+24, column=col_count+1).value = results[year]["convert"]["qtys"]["median"]
+
+        if results[year]["convert"]["late_qtys"]:
+            # "Late WO Count",
+            ws.cell(row=len(HEADINGS)+3+25, column=col_count+1).value = results[year]["convert"]["late_qtys"]["wo_count"]
+            # "Late Qty",
+            ws.cell(row=len(HEADINGS)+3+26, column=col_count+1).value = results[year]["convert"]["late_qtys"]["sum"]
+            # "Late Avg Qty",
+            ws.cell(row=len(HEADINGS)+3+27, column=col_count+1).value = results[year]["convert"]["late_qtys"]["avg"]
+            # "Late Median Qty",
+            ws.cell(row=len(HEADINGS)+3+28, column=col_count+1).value = results[year]["convert"]["late_qtys"]["median"]
+
+        if results[year]["convert"]["late_durations"]:
+            # "Late Avg Duration",
+            ws.cell(row=len(HEADINGS)+3+29, column=col_count+1).value = results[year]["convert"]["late_durations"]["avg"]
+            # "Late Median Duration",
+            ws.cell(row=len(HEADINGS)+3+30, column=col_count+1).value = results[year]["convert"]["late_durations"]["median"]
+        
+        col_count += 1
+
     return wb
 
 # print the top 3 components with late work orders associated with them
 def print_excel_components(wb, components):
-    START_ROW = 25
+    START_ROW = 57
     col_count = 2
 
     ws = wb["Results"]

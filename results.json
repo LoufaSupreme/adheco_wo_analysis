@@ -1,9 +1,15 @@
 {
     "2021": {
         "wo_count": 40,
+        "qtys": {
+            "wo_count": 40,
+            "sum": 529,
+            "avg": 13.0,
+            "median": 3
+        },
         "late_count": 0,
         "late_qtys": null,
-        "late_duration": null,
+        "late_durations": null,
         "slit": {
             "wo_count": 19,
             "qtys": {
@@ -132,6 +138,12 @@
     },
     "2022": {
         "wo_count": 2171,
+        "qtys": {
+            "wo_count": 2171,
+            "sum": 102596,
+            "avg": 47.0,
+            "median": 10
+        },
         "late_count": 600,
         "late_qtys": {
             "wo_count": 600,
@@ -139,7 +151,7 @@
             "avg": 57.0,
             "median": 12
         },
-        "late_duration": {
+        "late_durations": {
             "wo_count": 600,
             "sum": 5145,
             "avg": 9.0,
@@ -752,6 +764,12 @@
     },
     "2023": {
         "wo_count": 922,
+        "qtys": {
+            "wo_count": 922,
+            "sum": 44465,
+            "avg": 48.0,
+            "median": 10
+        },
         "late_count": 113,
         "late_qtys": {
             "wo_count": 113,
@@ -759,7 +777,7 @@
             "avg": 144.0,
             "median": 12
         },
-        "late_duration": {
+        "late_durations": {
             "wo_count": 113,
             "sum": 1739,
             "avg": 15.0,
