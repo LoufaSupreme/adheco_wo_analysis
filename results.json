@@ -1,16 +1,35 @@
 {
     "2021": {
-        "wo_count": 0,
+        "wo_count": 40,
         "late_count": 0,
         "late_qtys": null,
         "late_duration": null,
         "slit": {
-            "wo_count": 0,
-            "qtys": null,
+            "wo_count": 19,
+            "qtys": {
+                "wo_count": 19,
+                "sum": 320,
+                "avg": 17.0,
+                "median": 10
+            },
             "late_count": 0,
             "late_qtys": null,
             "late_durations": null,
             "months": {
+                "September": {
+                    "month": "September",
+                    "month_num": 9,
+                    "wo_count": 1,
+                    "qtys": {
+                        "wo_count": 1,
+                        "sum": 1,
+                        "avg": 1.0,
+                        "median": 1
+                    },
+                    "late_count": 0,
+                    "late_qtys": null,
+                    "late_durations": null
+                },
                 "October": {
                     "month": "October",
                     "month_num": 10,
@@ -23,8 +42,13 @@
                 "November": {
                     "month": "November",
                     "month_num": 11,
-                    "wo_count": 0,
-                    "qtys": null,
+                    "wo_count": 4,
+                    "qtys": {
+                        "wo_count": 4,
+                        "sum": 74,
+                        "avg": 18.0,
+                        "median": 12
+                    },
                     "late_count": 0,
                     "late_qtys": null,
                     "late_durations": null
@@ -32,8 +56,13 @@
                 "December": {
                     "month": "December",
                     "month_num": 12,
-                    "wo_count": 0,
-                    "qtys": null,
+                    "wo_count": 14,
+                    "qtys": {
+                        "wo_count": 14,
+                        "sum": 245,
+                        "avg": 18.0,
+                        "median": 10
+                    },
                     "late_count": 0,
                     "late_qtys": null,
                     "late_durations": null
@@ -41,12 +70,31 @@
             }
         },
         "convert": {
-            "wo_count": 0,
-            "qtys": null,
+            "wo_count": 21,
+            "qtys": {
+                "wo_count": 21,
+                "sum": 209,
+                "avg": 10.0,
+                "median": 2
+            },
             "late_count": 0,
             "late_qtys": null,
             "late_durations": null,
             "months": {
+                "September": {
+                    "month": "September",
+                    "month_num": 9,
+                    "wo_count": 1,
+                    "qtys": {
+                        "wo_count": 1,
+                        "sum": 1,
+                        "avg": 1.0,
+                        "median": 1
+                    },
+                    "late_count": 0,
+                    "late_qtys": null,
+                    "late_durations": null
+                },
                 "October": {
                     "month": "October",
                     "month_num": 10,
@@ -68,8 +116,13 @@
                 "December": {
                     "month": "December",
                     "month_num": 12,
-                    "wo_count": 0,
-                    "qtys": null,
+                    "wo_count": 20,
+                    "qtys": {
+                        "wo_count": 20,
+                        "sum": 208,
+                        "avg": 10.0,
+                        "median": 3
+                    },
                     "late_count": 0,
                     "late_qtys": null,
                     "late_durations": null
@@ -78,110 +131,110 @@
         }
     },
     "2022": {
-        "wo_count": 2176,
-        "late_count": 609,
+        "wo_count": 2171,
+        "late_count": 600,
         "late_qtys": {
-            "wo_count": 609,
-            "sum": 38178,
-            "avg": 63.0,
+            "wo_count": 600,
+            "sum": 34367,
+            "avg": 57.0,
             "median": 12
         },
         "late_duration": {
-            "wo_count": 609,
-            "sum": 5709,
+            "wo_count": 600,
+            "sum": 5145,
             "avg": 9.0,
             "median": 3
         },
         "slit": {
-            "wo_count": 1549,
+            "wo_count": 1545,
             "qtys": {
-                "wo_count": 1549,
-                "sum": 53133,
+                "wo_count": 1545,
+                "sum": 52824,
                 "avg": 34.0,
                 "median": 10
             },
-            "late_count": 578,
+            "late_count": 571,
             "late_qtys": {
-                "wo_count": 578,
-                "sum": 26804,
+                "wo_count": 571,
+                "sum": 25995,
                 "avg": 46.0,
                 "median": 12
             },
             "late_durations": {
-                "wo_count": 578,
-                "sum": 5002,
-                "avg": 9.0,
+                "wo_count": 571,
+                "sum": 4505,
+                "avg": 8.0,
                 "median": 3
             },
             "months": {
                 "January": {
                     "month": "January",
                     "month_num": 1,
-                    "wo_count": 155,
+                    "wo_count": 127,
                     "qtys": {
-                        "wo_count": 155,
-                        "sum": 4602,
-                        "avg": 30.0,
+                        "wo_count": 127,
+                        "sum": 3626,
+                        "avg": 29.0,
                         "median": 10
                     },
-                    "late_count": 72,
+                    "late_count": 60,
                     "late_qtys": {
-                        "wo_count": 72,
-                        "sum": 3180,
-                        "avg": 44.0,
-                        "median": 14
+                        "wo_count": 60,
+                        "sum": 2506,
+                        "avg": 42.0,
+                        "median": 10
                     },
                     "late_durations": {
-                        "wo_count": 72,
-                        "sum": 299,
-                        "avg": 4.0,
+                        "wo_count": 60,
+                        "sum": 151,
+                        "avg": 3.0,
                         "median": 3
                     }
                 },
                 "February": {
                     "month": "February",
                     "month_num": 2,
-                    "wo_count": 120,
+                    "wo_count": 142,
                     "qtys": {
-                        "wo_count": 120,
-                        "sum": 3714,
-                        "avg": 31.0,
+                        "wo_count": 142,
+                        "sum": 3789,
+                        "avg": 27.0,
                         "median": 12
                     },
-                    "late_count": 27,
+                    "late_count": 31,
                     "late_qtys": {
-                        "wo_count": 27,
-                        "sum": 1577,
-                        "avg": 58.0,
-                        "median": 20
+                        "wo_count": 31,
+                        "sum": 1347,
+                        "avg": 43.0,
+                        "median": 30
                     },
                     "late_durations": {
-                        "wo_count": 27,
-                        "sum": 298,
-                        "avg": 11.0,
-                        "median": 2
+                        "wo_count": 31,
+                        "sum": 188,
+                        "avg": 6.0,
+                        "median": 3
                     }
                 },
                 "March": {
                     "month": "March",
                     "month_num": 3,
-                    "wo_count": 131,
+                    "wo_count": 125,
                     "qtys": {
-                        "wo_count": 131,
-                        "sum": 4562,
-                        "avg": 35.0,
+                        "wo_count": 125,
+                        "sum": 4956,
+                        "avg": 40.0,
                         "median": 10
                     },
-                    "late_count": 48,
+                    "late_count": 49,
                     "late_qtys": {
-                        "wo_count": 48,
-                        "sum": 2354,
-                        "avg": 49.0,
-                        "median": 15
+                        "wo_count": 49,
+                        "sum": 2793,
+                        "avg": 57.0,
+                        "median": 10
                     },
                     "late_durations": {
-                        "wo_count": 48,
-                        "sum": 368,
+                        "wo_count": 49,
+                        "sum": 402,
                         "avg": 8.0,
                         "median": 3
                     }
@@ -189,276 +242,348 @@
                 "April": {
                     "month": "April",
                     "month_num": 4,
-                    "wo_count": 141,
+                    "wo_count": 138,
                     "qtys": {
-                        "wo_count": 141,
-                        "sum": 4602,
-                        "avg": 33.0,
+                        "wo_count": 138,
+                        "sum": 4888,
+                        "avg": 35.0,
                         "median": 10
                     },
-                    "late_count": 54,
+                    "late_count": 48,
                     "late_qtys": {
-                        "wo_count": 54,
-                        "sum": 2747,
-                        "avg": 51.0,
+                        "wo_count": 48,
+                        "sum": 2716,
+                        "avg": 57.0,
                         "median": 10
                     },
                     "late_durations": {
-                        "wo_count": 54,
-                        "sum": 678,
-                        "avg": 13.0,
+                        "wo_count": 48,
+                        "sum": 267,
+                        "avg": 6.0,
                         "median": 3
                     }
                 },
                 "May": {
                     "month": "May",
                     "month_num": 5,
-                    "wo_count": 145,
+                    "wo_count": 142,
                     "qtys": {
-                        "wo_count": 145,
-                        "sum": 5427,
-                        "avg": 37.0,
+                        "wo_count": 142,
+                        "sum": 4334,
+                        "avg": 31.0,
                         "median": 10
                     },
-                    "late_count": 54,
+                    "late_count": 49,
                     "late_qtys": {
-                        "wo_count": 54,
-                        "sum": 3331,
-                        "avg": 62.0,
-                        "median": 24
+                        "wo_count": 49,
+                        "sum": 1901,
+                        "avg": 39.0,
+                        "median": 11
                     },
                     "late_durations": {
-                        "wo_count": 54,
-                        "sum": 585,
-                        "avg": 11.0,
+                        "wo_count": 49,
+                        "sum": 329,
+                        "avg": 7.0,
                         "median": 3
                     }
                 },
                 "June": {
                     "month": "June",
                     "month_num": 6,
-                    "wo_count": 111,
+                    "wo_count": 113,
                     "qtys": {
-                        "wo_count": 111,
-                        "sum": 3236,
-                        "avg": 29.0,
+                        "wo_count": 113,
+                        "sum": 3969,
+                        "avg": 35.0,
                         "median": 10
                     },
-                    "late_count": 54,
+                    "late_count": 66,
                     "late_qtys": {
-                        "wo_count": 54,
-                        "sum": 1413,
-                        "avg": 26.0,
-                        "median": 10
+                        "wo_count": 66,
+                        "sum": 2853,
+                        "avg": 43.0,
+                        "median": 12
                     },
                     "late_durations": {
-                        "wo_count": 54,
-                        "sum": 240,
-                        "avg": 4.0,
+                        "wo_count": 66,
+                        "sum": 954,
+                        "avg": 14.0,
                         "median": 3
                     }
                 },
                 "July": {
                     "month": "July",
                     "month_num": 7,
-                    "wo_count": 98,
+                    "wo_count": 89,
                     "qtys": {
-                        "wo_count": 98,
-                        "sum": 3523,
-                        "avg": 36.0,
-                        "median": 18
+                        "wo_count": 89,
+                        "sum": 3051,
+                        "avg": 34.0,
+                        "median": 16
                     },
-                    "late_count": 30,
+                    "late_count": 18,
                     "late_qtys": {
-                        "wo_count": 30,
-                        "sum": 1668,
-                        "avg": 56.0,
-                        "median": 20
+                        "wo_count": 18,
+                        "sum": 1188,
+                        "avg": 66.0,
+                        "median": 25
                     },
                     "late_durations": {
-                        "wo_count": 30,
-                        "sum": 607,
-                        "avg": 20.0,
-                        "median": 12
+                        "wo_count": 18,
+                        "sum": 111,
+                        "avg": 6.0,
+                        "median": 5
                     }
                 },
                 "August": {
                     "month": "August",
                     "month_num": 8,
-                    "wo_count": 125,
+                    "wo_count": 144,
                     "qtys": {
-                        "wo_count": 125,
-                        "sum": 4198,
+                        "wo_count": 144,
+                        "sum": 4664,
+                        "avg": 32.0,
+                        "median": 10
+                    },
+                    "late_count": 77,
+                    "late_qtys": {
+                        "wo_count": 77,
+                        "sum": 2587,
                         "avg": 34.0,
                         "median": 10
                     },
-                    "late_count": 78,
-                    "late_qtys": {
-                        "wo_count": 78,
-                        "sum": 2995,
-                        "avg": 38.0,
-                        "median": 10
-                    },
                     "late_durations": {
-                        "wo_count": 78,
-                        "sum": 412,
-                        "avg": 5.0,
+                        "wo_count": 77,
+                        "sum": 482,
+                        "avg": 6.0,
                         "median": 3
                     }
                 },
                 "September": {
                     "month": "September",
                     "month_num": 9,
-                    "wo_count": 138,
+                    "wo_count": 135,
                     "qtys": {
-                        "wo_count": 138,
-                        "sum": 4706,
-                        "avg": 34.0,
-                        "median": 12
+                        "wo_count": 135,
+                        "sum": 5057,
+                        "avg": 37.0,
+                        "median": 10
                     },
-                    "late_count": 52,
+                    "late_count": 56,
                     "late_qtys": {
-                        "wo_count": 52,
-                        "sum": 2575,
-                        "avg": 50.0,
-                        "median": 16
+                        "wo_count": 56,
+                        "sum": 3081,
+                        "avg": 55.0,
+                        "median": 20
                     },
                     "late_durations": {
-                        "wo_count": 52,
-                        "sum": 386,
-                        "avg": 7.0,
-                        "median": 4
+                        "wo_count": 56,
+                        "sum": 575,
+                        "avg": 10.0,
+                        "median": 3
                     }
                 },
                 "October": {
                     "month": "October",
                     "month_num": 10,
-                    "wo_count": 146,
+                    "wo_count": 142,
                     "qtys": {
-                        "wo_count": 146,
-                        "sum": 5822,
-                        "avg": 40.0,
+                        "wo_count": 142,
+                        "sum": 5401,
+                        "avg": 38.0,
                         "median": 10
                     },
-                    "late_count": 76,
+                    "late_count": 66,
                     "late_qtys": {
-                        "wo_count": 76,
-                        "sum": 3218,
-                        "avg": 42.0,
-                        "median": 12
+                        "wo_count": 66,
+                        "sum": 2844,
+                        "avg": 43.0,
+                        "median": 10
                     },
                     "late_durations": {
-                        "wo_count": 76,
-                        "sum": 696,
-                        "avg": 9.0,
-                        "median": 3
+                        "wo_count": 66,
+                        "sum": 438,
+                        "avg": 7.0,
+                        "median": 2
                     }
                 },
                 "November": {
                     "month": "November",
                     "month_num": 11,
-                    "wo_count": 137,
+                    "wo_count": 176,
                     "qtys": {
-                        "wo_count": 137,
-                        "sum": 5317,
-                        "avg": 39.0,
+                        "wo_count": 176,
+                        "sum": 6329,
+                        "avg": 36.0,
                         "median": 12
                     },
-                    "late_count": 23,
+                    "late_count": 42,
                     "late_qtys": {
-                        "wo_count": 23,
-                        "sum": 1034,
-                        "avg": 45.0,
-                        "median": 15
+                        "wo_count": 42,
+                        "sum": 1761,
+                        "avg": 42.0,
+                        "median": 12
                     },
                     "late_durations": {
-                        "wo_count": 23,
-                        "sum": 159,
-                        "avg": 7.0,
-                        "median": 3
+                        "wo_count": 42,
+                        "sum": 415,
+                        "avg": 10.0,
+                        "median": 4
                     }
                 },
                 "December": {
                     "month": "December",
                     "month_num": 12,
-                    "wo_count": 102,
+                    "wo_count": 72,
                     "qtys": {
-                        "wo_count": 102,
-                        "sum": 3424,
-                        "avg": 34.0,
-                        "median": 10
+                        "wo_count": 72,
+                        "sum": 2760,
+                        "avg": 38.0,
+                        "median": 12
                     },
-                    "late_count": 10,
+                    "late_count": 9,
                     "late_qtys": {
-                        "wo_count": 10,
-                        "sum": 712,
-                        "avg": 71.0,
-                        "median": 30
+                        "wo_count": 9,
+                        "sum": 418,
+                        "avg": 46.0,
+                        "median": 17
                     },
                     "late_durations": {
-                        "wo_count": 10,
-                        "sum": 274,
-                        "avg": 27.0,
-                        "median": 26
+                        "wo_count": 9,
+                        "sum": 193,
+                        "avg": 21.0,
+                        "median": 17
                     }
                 }
             }
         },
         "convert": {
-            "wo_count": 600,
+            "wo_count": 598,
             "qtys": {
-                "wo_count": 600,
-                "sum": 49253,
-                "avg": 82.0,
+                "wo_count": 598,
+                "sum": 49576,
+                "avg": 83.0,
                 "median": 3
             },
-            "late_count": 28,
+            "late_count": 26,
             "late_qtys": {
-                "wo_count": 28,
-                "sum": 11368,
-                "avg": 406.0,
+                "wo_count": 26,
+                "sum": 8366,
+                "avg": 322.0,
                 "median": 3
             },
             "late_durations": {
-                "wo_count": 28,
-                "sum": 701,
-                "avg": 25.0,
+                "wo_count": 26,
+                "sum": 634,
+                "avg": 24.0,
                 "median": 17
             },
             "months": {
                 "January": {
                     "month": "January",
                     "month_num": 1,
-                    "wo_count": 47,
+                    "wo_count": 35,
                     "qtys": {
-                        "wo_count": 47,
-                        "sum": 405,
-                        "avg": 9.0,
+                        "wo_count": 35,
+                        "sum": 7208,
+                        "avg": 206.0,
                         "median": 3
                     },
-                    "late_count": 7,
+                    "late_count": 2,
                     "late_qtys": {
-                        "wo_count": 7,
-                        "sum": 19,
-                        "avg": 3.0,
-                        "median": 2
+                        "wo_count": 2,
+                        "sum": 4,
+                        "avg": 2.0,
+                        "median": 3
                     },
                     "late_durations": {
-                        "wo_count": 7,
-                        "sum": 289,
-                        "avg": 41.0,
-                        "median": 31
+                        "wo_count": 2,
+                        "sum": 23,
+                        "avg": 12.0,
+                        "median": 17
                     }
                 },
                 "February": {
                     "month": "February",
                     "month_num": 2,
-                    "wo_count": 43,
+                    "wo_count": 57,
                     "qtys": {
-                        "wo_count": 43,
-                        "sum": 7503,
-                        "avg": 174.0,
+                        "wo_count": 57,
+                        "sum": 3867,
+                        "avg": 68.0,
+                        "median": 5
+                    },
+                    "late_count": 4,
+                    "late_qtys": {
+                        "wo_count": 4,
+                        "sum": 5,
+                        "avg": 1.0,
+                        "median": 1
+                    },
+                    "late_durations": {
+                        "wo_count": 4,
+                        "sum": 76,
+                        "avg": 19.0,
+                        "median": 31
+                    }
+                },
+                "March": {
+                    "month": "March",
+                    "month_num": 3,
+                    "wo_count": 39,
+                    "qtys": {
+                        "wo_count": 39,
+                        "sum": 368,
+                        "avg": 9.0,
+                        "median": 2
+                    },
+                    "late_count": 3,
+                    "late_qtys": {
+                        "wo_count": 3,
+                        "sum": 13,
+                        "avg": 4.0,
+                        "median": 3
+                    },
+                    "late_durations": {
+                        "wo_count": 3,
+                        "sum": 204,
+                        "avg": 68.0,
+                        "median": 68
+                    }
+                },
+                "April": {
+                    "month": "April",
+                    "month_num": 4,
+                    "wo_count": 48,
+                    "qtys": {
+                        "wo_count": 48,
+                        "sum": 6241,
+                        "avg": 130.0,
                         "median": 4
+                    },
+                    "late_count": 4,
+                    "late_qtys": {
+                        "wo_count": 4,
+                        "sum": 5202,
+                        "avg": 1300.0,
+                        "median": 1600
+                    },
+                    "late_durations": {
+                        "wo_count": 4,
+                        "sum": 89,
+                        "avg": 22.0,
+                        "median": 26
+                    }
+                },
+                "May": {
+                    "month": "May",
+                    "month_num": 5,
+                    "wo_count": 52,
+                    "qtys": {
+                        "wo_count": 52,
+                        "sum": 6725,
+                        "avg": 129.0,
+                        "median": 2
                     },
                     "late_count": 2,
                     "late_qtys": {
@@ -469,81 +594,19 @@
                     },
                     "late_durations": {
                         "wo_count": 2,
-                        "sum": 14,
-                        "avg": 7.0,
-                        "median": 7
-                    }
-                },
-                "March": {
-                    "month": "March",
-                    "month_num": 3,
-                    "wo_count": 48,
-                    "qtys": {
-                        "wo_count": 48,
-                        "sum": 8703,
-                        "avg": 181.0,
-                        "median": 2
-                    },
-                    "late_count": 3,
-                    "late_qtys": {
-                        "wo_count": 3,
-                        "sum": 5201,
-                        "avg": 1734.0,
-                        "median": 1600
-                    },
-                    "late_durations": {
-                        "wo_count": 3,
-                        "sum": 84,
-                        "avg": 28.0,
-                        "median": 26
-                    }
-                },
-                "April": {
-                    "month": "April",
-                    "month_num": 4,
-                    "wo_count": 41,
-                    "qtys": {
-                        "wo_count": 41,
-                        "sum": 553,
-                        "avg": 13.0,
-                        "median": 4
-                    },
-                    "late_count": 3,
-                    "late_qtys": {
-                        "wo_count": 3,
-                        "sum": 4,
-                        "avg": 1.0,
-                        "median": 1
-                    },
-                    "late_durations": {
-                        "wo_count": 3,
-                        "sum": 35,
-                        "avg": 12.0,
+                        "sum": 30,
+                        "avg": 15.0,
                         "median": 15
                     }
-                },
-                "May": {
-                    "month": "May",
-                    "month_num": 5,
-                    "wo_count": 45,
-                    "qtys": {
-                        "wo_count": 45,
-                        "sum": 6811,
-                        "avg": 151.0,
-                        "median": 5
-                    },
-                    "late_count": 0,
-                    "late_qtys": null,
-                    "late_durations": null
                 },
                 "June": {
                     "month": "June",
                     "month_num": 6,
-                    "wo_count": 46,
+                    "wo_count": 49,
                     "qtys": {
-                        "wo_count": 46,
-                        "sum": 631,
-                        "avg": 14.0,
+                        "wo_count": 49,
+                        "sum": 585,
+                        "avg": 12.0,
                         "median": 3
                     },
                     "late_count": 0,
@@ -553,73 +616,83 @@
                 "July": {
                     "month": "July",
                     "month_num": 7,
-                    "wo_count": 44,
+                    "wo_count": 49,
                     "qtys": {
-                        "wo_count": 44,
-                        "sum": 1072,
-                        "avg": 24.0,
+                        "wo_count": 49,
+                        "sum": 4523,
+                        "avg": 92.0,
+                        "median": 4
+                    },
+                    "late_count": 2,
+                    "late_qtys": {
+                        "wo_count": 2,
+                        "sum": 6,
+                        "avg": 3.0,
                         "median": 3
                     },
-                    "late_count": 4,
-                    "late_qtys": {
-                        "wo_count": 4,
-                        "sum": 106,
-                        "avg": 26.0,
-                        "median": 20
-                    },
                     "late_durations": {
-                        "wo_count": 4,
-                        "sum": 74,
-                        "avg": 18.0,
+                        "wo_count": 2,
+                        "sum": 32,
+                        "avg": 16.0,
                         "median": 19
                     }
                 },
                 "August": {
                     "month": "August",
                     "month_num": 8,
-                    "wo_count": 65,
+                    "wo_count": 62,
                     "qtys": {
-                        "wo_count": 65,
-                        "sum": 7947,
-                        "avg": 122.0,
-                        "median": 7
+                        "wo_count": 62,
+                        "sum": 1719,
+                        "avg": 28.0,
+                        "median": 4
                     },
-                    "late_count": 4,
+                    "late_count": 3,
                     "late_qtys": {
-                        "wo_count": 4,
-                        "sum": 3028,
-                        "avg": 757.0,
+                        "wo_count": 3,
+                        "sum": 103,
+                        "avg": 34.0,
                         "median": 20
                     },
                     "late_durations": {
-                        "wo_count": 4,
-                        "sum": 119,
-                        "avg": 30.0,
-                        "median": 20
+                        "wo_count": 3,
+                        "sum": 43,
+                        "avg": 14.0,
+                        "median": 14
                     }
                 },
                 "September": {
                     "month": "September",
                     "month_num": 9,
-                    "wo_count": 60,
+                    "wo_count": 55,
                     "qtys": {
-                        "wo_count": 60,
-                        "sum": 870,
-                        "avg": 14.0,
-                        "median": 4
+                        "wo_count": 55,
+                        "sum": 3536,
+                        "avg": 64.0,
+                        "median": 5
                     },
-                    "late_count": 0,
-                    "late_qtys": null,
-                    "late_durations": null
+                    "late_count": 2,
+                    "late_qtys": {
+                        "wo_count": 2,
+                        "sum": 25,
+                        "avg": 12.0,
+                        "median": 20
+                    },
+                    "late_durations": {
+                        "wo_count": 2,
+                        "sum": 32,
+                        "avg": 16.0,
+                        "median": 20
+                    }
                 },
                 "October": {
                     "month": "October",
                     "month_num": 10,
-                    "wo_count": 48,
+                    "wo_count": 63,
                     "qtys": {
-                        "wo_count": 48,
-                        "sum": 4013,
-                        "avg": 84.0,
+                        "wo_count": 63,
+                        "sum": 4395,
+                        "avg": 70.0,
                         "median": 3
                     },
                     "late_count": 3,
@@ -639,11 +712,11 @@
                 "November": {
                     "month": "November",
                     "month_num": 11,
-                    "wo_count": 65,
+                    "wo_count": 64,
                     "qtys": {
-                        "wo_count": 65,
-                        "sum": 6831,
-                        "avg": 105.0,
+                        "wo_count": 64,
+                        "sum": 10136,
+                        "avg": 158.0,
                         "median": 2
                     },
                     "late_count": 1,
@@ -655,384 +728,354 @@
                     },
                     "late_durations": {
                         "wo_count": 1,
-                        "sum": 47,
-                        "avg": 47.0,
-                        "median": 47
+                        "sum": 86,
+                        "avg": 86.0,
+                        "median": 86
                     }
                 },
                 "December": {
                     "month": "December",
                     "month_num": 12,
-                    "wo_count": 48,
+                    "wo_count": 25,
                     "qtys": {
-                        "wo_count": 48,
-                        "sum": 3914,
-                        "avg": 82.0,
-                        "median": 3
-                    },
-                    "late_count": 1,
-                    "late_qtys": {
-                        "wo_count": 1,
-                        "sum": 2,
-                        "avg": 2.0,
+                        "wo_count": 25,
+                        "sum": 273,
+                        "avg": 11.0,
                         "median": 2
                     },
-                    "late_durations": {
-                        "wo_count": 1,
-                        "sum": 20,
-                        "avg": 20.0,
-                        "median": 20
-                    }
+                    "late_count": 0,
+                    "late_qtys": null,
+                    "late_durations": null
                 }
             }
         }
     },
     "2023": {
-        "wo_count": 955,
-        "late_count": 104,
+        "wo_count": 922,
+        "late_count": 113,
         "late_qtys": {
-            "wo_count": 104,
-            "sum": 12496,
-            "avg": 120.0,
+            "wo_count": 113,
+            "sum": 16307,
+            "avg": 144.0,
             "median": 12
         },
         "late_duration": {
-            "wo_count": 104,
-            "sum": 1175,
-            "avg": 11.0,
-            "median": 5
+            "wo_count": 113,
+            "sum": 1739,
+            "avg": 15.0,
+            "median": 6
         },
         "slit": {
-            "wo_count": 679,
+            "wo_count": 666,
             "qtys": {
-                "wo_count": 679,
-                "sum": 21750,
-                "avg": 32.0,
-                "median": 11
+                "wo_count": 666,
+                "sum": 21800,
+                "avg": 33.0,
+                "median": 10
             },
-            "late_count": 82,
+            "late_count": 89,
             "late_qtys": {
-                "wo_count": 82,
-                "sum": 2919,
-                "avg": 36.0,
-                "median": 12
+                "wo_count": 89,
+                "sum": 3728,
+                "avg": 42.0,
+                "median": 15
             },
             "late_durations": {
-                "wo_count": 82,
-                "sum": 691,
-                "avg": 8.0,
-                "median": 5
+                "wo_count": 89,
+                "sum": 1188,
+                "avg": 13.0,
+                "median": 6
             },
             "months": {
                 "January": {
                     "month": "January",
                     "month_num": 1,
-                    "wo_count": 136,
+                    "wo_count": 153,
                     "qtys": {
-                        "wo_count": 136,
-                        "sum": 5208,
-                        "avg": 38.0,
+                        "wo_count": 153,
+                        "sum": 6084,
+                        "avg": 40.0,
                         "median": 12
                     },
-                    "late_count": 19,
+                    "late_count": 18,
                     "late_qtys": {
-                        "wo_count": 19,
-                        "sum": 420,
-                        "avg": 22.0,
+                        "wo_count": 18,
+                        "sum": 941,
+                        "avg": 52.0,
                         "median": 20
                     },
                     "late_durations": {
-                        "wo_count": 19,
-                        "sum": 132,
-                        "avg": 7.0,
+                        "wo_count": 18,
+                        "sum": 209,
+                        "avg": 12.0,
                         "median": 7
                     }
                 },
                 "February": {
                     "month": "February",
                     "month_num": 2,
-                    "wo_count": 135,
+                    "wo_count": 132,
                     "qtys": {
-                        "wo_count": 135,
-                        "sum": 3965,
-                        "avg": 29.0,
+                        "wo_count": 132,
+                        "sum": 3654,
+                        "avg": 28.0,
                         "median": 10
                     },
-                    "late_count": 20,
+                    "late_count": 24,
                     "late_qtys": {
-                        "wo_count": 20,
-                        "sum": 574,
-                        "avg": 29.0,
-                        "median": 12
+                        "wo_count": 24,
+                        "sum": 629,
+                        "avg": 26.0,
+                        "median": 10
                     },
                     "late_durations": {
-                        "wo_count": 20,
-                        "sum": 174,
-                        "avg": 9.0,
+                        "wo_count": 24,
+                        "sum": 230,
+                        "avg": 10.0,
                         "median": 5
                     }
                 },
                 "March": {
                     "month": "March",
                     "month_num": 3,
-                    "wo_count": 157,
+                    "wo_count": 160,
                     "qtys": {
-                        "wo_count": 157,
-                        "sum": 4627,
-                        "avg": 29.0,
+                        "wo_count": 160,
+                        "sum": 4861,
+                        "avg": 30.0,
                         "median": 10
                     },
-                    "late_count": 8,
+                    "late_count": 6,
                     "late_qtys": {
-                        "wo_count": 8,
-                        "sum": 287,
-                        "avg": 36.0,
-                        "median": 11
+                        "wo_count": 6,
+                        "sum": 242,
+                        "avg": 40.0,
+                        "median": 10
                     },
                     "late_durations": {
-                        "wo_count": 8,
-                        "sum": 113,
-                        "avg": 14.0,
-                        "median": 12
+                        "wo_count": 6,
+                        "sum": 122,
+                        "avg": 20.0,
+                        "median": 9
                     }
                 },
                 "April": {
                     "month": "April",
                     "month_num": 4,
-                    "wo_count": 106,
+                    "wo_count": 114,
                     "qtys": {
-                        "wo_count": 106,
-                        "sum": 3414,
-                        "avg": 32.0,
-                        "median": 12
+                        "wo_count": 114,
+                        "sum": 3255,
+                        "avg": 29.0,
+                        "median": 13
                     },
-                    "late_count": 14,
+                    "late_count": 13,
                     "late_qtys": {
-                        "wo_count": 14,
-                        "sum": 394,
-                        "avg": 28.0,
-                        "median": 10
+                        "wo_count": 13,
+                        "sum": 166,
+                        "avg": 13.0,
+                        "median": 5
                     },
                     "late_durations": {
-                        "wo_count": 14,
-                        "sum": 168,
-                        "avg": 12.0,
+                        "wo_count": 13,
+                        "sum": 146,
+                        "avg": 11.0,
                         "median": 7
                     }
                 },
                 "May": {
                     "month": "May",
                     "month_num": 5,
-                    "wo_count": 126,
+                    "wo_count": 93,
                     "qtys": {
-                        "wo_count": 126,
-                        "sum": 4095,
-                        "avg": 32.0,
+                        "wo_count": 93,
+                        "sum": 3557,
+                        "avg": 38.0,
                         "median": 12
                     },
-                    "late_count": 20,
+                    "late_count": 21,
                     "late_qtys": {
-                        "wo_count": 20,
-                        "sum": 1139,
-                        "avg": 57.0,
-                        "median": 12
+                        "wo_count": 21,
+                        "sum": 1498,
+                        "avg": 71.0,
+                        "median": 36
                     },
                     "late_durations": {
-                        "wo_count": 20,
-                        "sum": 101,
-                        "avg": 5.0,
-                        "median": 4
+                        "wo_count": 21,
+                        "sum": 454,
+                        "avg": 22.0,
+                        "median": 5
                     }
                 },
                 "June": {
                     "month": "June",
                     "month_num": 6,
-                    "wo_count": 15,
+                    "wo_count": 14,
                     "qtys": {
-                        "wo_count": 15,
-                        "sum": 433,
-                        "avg": 29.0,
-                        "median": 17
+                        "wo_count": 14,
+                        "sum": 389,
+                        "avg": 28.0,
+                        "median": 10
                     },
-                    "late_count": 1,
+                    "late_count": 7,
                     "late_qtys": {
-                        "wo_count": 1,
-                        "sum": 105,
-                        "avg": 105.0,
-                        "median": 105
+                        "wo_count": 7,
+                        "sum": 252,
+                        "avg": 36.0,
+                        "median": 2
                     },
                     "late_durations": {
-                        "wo_count": 1,
-                        "sum": 3,
-                        "avg": 3.0,
-                        "median": 3
+                        "wo_count": 7,
+                        "sum": 27,
+                        "avg": 4.0,
+                        "median": 2
                     }
                 }
             }
         },
         "convert": {
-            "wo_count": 262,
+            "wo_count": 243,
             "qtys": {
-                "wo_count": 262,
-                "sum": 23176,
-                "avg": 88.0,
-                "median": 3
+                "wo_count": 243,
+                "sum": 22644,
+                "avg": 93.0,
+                "median": 4
             },
-            "late_count": 21,
+            "late_count": 23,
             "late_qtys": {
-                "wo_count": 21,
-                "sum": 9575,
-                "avg": 456.0,
+                "wo_count": 23,
+                "sum": 12577,
+                "avg": 547.0,
                 "median": 12
             },
             "late_durations": {
-                "wo_count": 21,
-                "sum": 480,
-                "avg": 23.0,
+                "wo_count": 23,
+                "sum": 547,
+                "avg": 24.0,
                 "median": 8
             },
             "months": {
                 "January": {
                     "month": "January",
                     "month_num": 1,
-                    "wo_count": 52,
+                    "wo_count": 59,
                     "qtys": {
-                        "wo_count": 52,
-                        "sum": 9837,
-                        "avg": 189.0,
+                        "wo_count": 59,
+                        "sum": 7011,
+                        "avg": 119.0,
                         "median": 4
                     },
                     "late_count": 4,
                     "late_qtys": {
                         "wo_count": 4,
-                        "sum": 3015,
+                        "sum": 3016,
                         "avg": 754.0,
                         "median": 10
                     },
                     "late_durations": {
                         "wo_count": 4,
-                        "sum": 27,
-                        "avg": 7.0,
-                        "median": 8
+                        "sum": 78,
+                        "avg": 20.0,
+                        "median": 20
                     }
                 },
                 "February": {
                     "month": "February",
                     "month_num": 2,
-                    "wo_count": 60,
+                    "wo_count": 53,
                     "qtys": {
-                        "wo_count": 60,
-                        "sum": 2460,
-                        "avg": 41.0,
+                        "wo_count": 53,
+                        "sum": 4945,
+                        "avg": 93.0,
                         "median": 3
                     },
-                    "late_count": 3,
+                    "late_count": 4,
                     "late_qtys": {
-                        "wo_count": 3,
-                        "sum": 102,
-                        "avg": 34.0,
+                        "wo_count": 4,
+                        "sum": 3003,
+                        "avg": 751.0,
                         "median": 1
                     },
                     "late_durations": {
-                        "wo_count": 3,
-                        "sum": 105,
-                        "avg": 35.0,
-                        "median": 13
+                        "wo_count": 4,
+                        "sum": 30,
+                        "avg": 8.0,
+                        "median": 8
                     }
                 },
                 "March": {
                     "month": "March",
                     "month_num": 3,
-                    "wo_count": 48,
+                    "wo_count": 53,
                     "qtys": {
-                        "wo_count": 48,
-                        "sum": 743,
-                        "avg": 15.0,
-                        "median": 5
+                        "wo_count": 53,
+                        "sum": 538,
+                        "avg": 10.0,
+                        "median": 4
                     },
-                    "late_count": 2,
-                    "late_qtys": {
-                        "wo_count": 2,
-                        "sum": 108,
-                        "avg": 54.0,
-                        "median": 60
-                    },
-                    "late_durations": {
-                        "wo_count": 2,
-                        "sum": 149,
-                        "avg": 74.0,
-                        "median": 84
-                    }
+                    "late_count": 0,
+                    "late_qtys": null,
+                    "late_durations": null
                 },
                 "April": {
                     "month": "April",
                     "month_num": 4,
-                    "wo_count": 45,
+                    "wo_count": 39,
                     "qtys": {
-                        "wo_count": 45,
-                        "sum": 6517,
-                        "avg": 145.0,
+                        "wo_count": 39,
+                        "sum": 403,
+                        "avg": 10.0,
                         "median": 4
                     },
-                    "late_count": 3,
-                    "late_qtys": {
-                        "wo_count": 3,
-                        "sum": 6150,
-                        "avg": 2050.0,
-                        "median": 3000
-                    },
-                    "late_durations": {
-                        "wo_count": 3,
-                        "sum": 132,
-                        "avg": 44.0,
-                        "median": 40
-                    }
+                    "late_count": 0,
+                    "late_qtys": null,
+                    "late_durations": null
                 },
                 "May": {
                     "month": "May",
                     "month_num": 5,
-                    "wo_count": 41,
+                    "wo_count": 28,
                     "qtys": {
-                        "wo_count": 41,
-                        "sum": 3510,
-                        "avg": 86.0,
-                        "median": 3
+                        "wo_count": 28,
+                        "sum": 9428,
+                        "avg": 337.0,
+                        "median": 4
                     },
-                    "late_count": 6,
+                    "late_count": 8,
                     "late_qtys": {
-                        "wo_count": 6,
-                        "sum": 122,
-                        "avg": 20.0,
-                        "median": 2
+                        "wo_count": 8,
+                        "sum": 6256,
+                        "avg": 782.0,
+                        "median": 100
                     },
                     "late_durations": {
-                        "wo_count": 6,
-                        "sum": 55,
-                        "avg": 9.0,
-                        "median": 1
+                        "wo_count": 8,
+                        "sum": 242,
+                        "avg": 30.0,
+                        "median": 40
                     }
                 },
                 "June": {
                     "month": "June",
                     "month_num": 6,
-                    "wo_count": 12,
+                    "wo_count": 11,
                     "qtys": {
-                        "wo_count": 12,
-                        "sum": 101,
-                        "avg": 8.0,
-                        "median": 2
-                    },
-                    "late_count": 3,
-                    "late_qtys": {
-                        "wo_count": 3,
-                        "sum": 78,
-                        "avg": 26.0,
+                        "wo_count": 11,
+                        "sum": 319,
+                        "avg": 29.0,
                         "median": 12
                     },
+                    "late_count": 7,
+                    "late_qtys": {
+                        "wo_count": 7,
+                        "sum": 302,
+                        "avg": 43.0,
+                        "median": 50
+                    },
                     "late_durations": {
-                        "wo_count": 3,
-                        "sum": 12,
-                        "avg": 4.0,
+                        "wo_count": 7,
+                        "sum": 197,
+                        "avg": 28.0,
                         "median": 4
                     }
                 }

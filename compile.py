@@ -100,10 +100,10 @@ def contains(word, str):
 def filter_data(data, converting_type=None, lates_only=False, year=None, month=None):
     
     if year != None:
-        data = list(filter(lambda wo: wo["due_date"].year == year, data))
+        data = list(filter(lambda wo: wo["post_date"].year == year, data))
 
     if month != None:
-        data = list(filter(lambda wo: wo["due_date"].month == month, data))
+        data = list(filter(lambda wo: wo["post_date"].month == month, data))
 
     if lates_only:
         data = list(filter(lambda wo: wo["is_late"] == True, data))
@@ -192,7 +192,7 @@ def within_date_range(year, month, start, end):
     current_date = datetime.date(year, month, 1)
 
     # compare
-    if current_date < start or current_date > end:
+    if current_date < date_range_start or current_date > date_range_end:
         return False
     return True
 
@@ -265,7 +265,7 @@ def print_excel_results(wb, results):
         "Late Slit Median Qty",
         "Late Slit Avg Duration",
         "Late Slit Median Duration",
-        "Late Slit Ratio",
+        "Late Slit Ratio (%)",
 
         "Convert WO Count",
         "Convert Qty",
@@ -277,7 +277,7 @@ def print_excel_results(wb, results):
         "Late Convert Median Qty",
         "Late Convert Avg Duration",
         "Late Convert Median Duration",
-        "Late Convert Ratio",
+        "Late Convert Ratio (%)",
     ]
 
     for idx, heading in enumerate(HEADINGS):
@@ -292,25 +292,24 @@ def print_excel_results(wb, results):
             for idx, converting_type in enumerate(CONVERTING_TYPES):
                 prop = results[year][converting_type]["months"][month]
                 
-                if prop["qtys"]:
-                    ws.cell(row=idx*skip_count + 2, column=col_count+1).value = prop["qtys"]["wo_count"]
-                    ws.cell(row=idx*skip_count + 3, column=col_count+1).value = prop["qtys"]["sum"]
-                    ws.cell(row=idx*skip_count + 4, column=col_count+1).value = prop["qtys"]["avg"]
-                    ws.cell(row=idx*skip_count + 5, column=col_count+1).value = prop["qtys"]["median"]
+                ws.cell(row=idx*skip_count + 2, column=col_count+1).value = prop["qtys"]["wo_count"] if prop["qtys"] else 0
+                ws.cell(row=idx*skip_count + 3, column=col_count+1).value = prop["qtys"]["sum"] if prop["qtys"] else 0
+                ws.cell(row=idx*skip_count + 4, column=col_count+1).value = prop["qtys"]["avg"] if prop["qtys"] else 0
+                ws.cell(row=idx*skip_count + 5, column=col_count+1).value = prop["qtys"]["median"] if prop["qtys"] else 0
 
-                if prop["late_qtys"]:
-                    ws.cell(row=idx*skip_count + 6, column=col_count+1).value = prop["late_qtys"]["wo_count"]
-                    ws.cell(row=idx*skip_count + 7, column=col_count+1).value = prop["late_qtys"]["sum"]
-                    ws.cell(row=idx*skip_count + 8, column=col_count+1).value = prop["late_qtys"]["avg"]
-                    ws.cell(row=idx*skip_count + 9, column=col_count+1).value = prop["late_qtys"]["median"]
+                ws.cell(row=idx*skip_count + 6, column=col_count+1).value = prop["late_qtys"]["wo_count"] if prop["late_qtys"] else 0
+                ws.cell(row=idx*skip_count + 7, column=col_count+1).value = prop["late_qtys"]["sum"] if prop["late_qtys"] else 0
+                ws.cell(row=idx*skip_count + 8, column=col_count+1).value = prop["late_qtys"]["avg"] if prop["late_qtys"] else 0
+                ws.cell(row=idx*skip_count + 9, column=col_count+1).value = prop["late_qtys"]["median"] if prop["late_qtys"] else 0
                 
-                if prop["late_durations"]:
-                    ws.cell(row=idx*skip_count + 10, column=col_count+1).value = prop["late_durations"]["avg"]
-                    ws.cell(row=idx*skip_count + 11, column=col_count+1).value = prop["late_durations"]["median"]
+                ws.cell(row=idx*skip_count + 10, column=col_count+1).value = prop["late_durations"]["avg"] if prop["late_durations"] else 0
+                ws.cell(row=idx*skip_count + 11, column=col_count+1).value = prop["late_durations"]["median"] if prop["late_durations"] else 0
 
                 if prop["qtys"] and prop["late_qtys"]:
                     late_ratio = round((prop["late_qtys"]["wo_count"] / prop["qtys"]["wo_count"])*100)
-                    ws.cell(row=idx*skip_count + 12, column=col_count+1).value = str(late_ratio) + "%"
+                    ws.cell(row=idx*skip_count + 12, column=col_count+1).value = late_ratio
+                else:
+                    ws.cell(row=idx*skip_count + 12, column=col_count+1).value = 0
 
             col_count+=1
 
@@ -350,22 +349,23 @@ def print_excel_components(wb, components):
 
     return wb
 
-def save_workbook(wb):
-    wb.save(f"results_{datetime.datetime.today().strftime('%d%b%Y')}.xlsx")
+def save_workbook(wb, name):
+    wb.save(f"U:\Josh\JD Working Folder\Adheco General\Warehouse\Converting Analysis/{name}_{datetime.datetime.today().strftime('%d%b%Y')}.xlsx")
 
 def console_log_json(data):
     print(json.dumps(data, indent=2, default=str))
 
+def main(workbook_name):
+    wb = open_wb(workbook_name)
+    data = collect_data(wb)
+    results = summarize(data)
+    components = summarize_late_components(data)
+    print_to_json(data, "data")
+    print_to_json(results, "results")
+    print_to_json(components, "components")
+    print_excel_results(wb, results)
+    print_excel_components(wb, components)
+    save_workbook(wb, "Workorder Analysis")
 
-wb = open_wb('~CR1B29.xlsx')
-data = collect_data(wb)
-results = summarize(data)
-components = summarize_late_components(data)
-print_to_json(data, "data")
-print_to_json(results, "results")
-print_to_json(components, "components")
-print_excel_results(wb, results)
-print_excel_components(wb, components)
-save_workbook(wb)
-
+main('~CR1B29.xlsx')
 
