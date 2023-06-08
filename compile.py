@@ -52,7 +52,6 @@ def collect_data(wb):
     }
 
     for i in range(1, ws.max_row + 1):
-    # for i in range(1, 3):
         if ws['I' + str(i)].value != "Record Production":
             continue
         if ws['E' + str(i)].value != "Posted":
@@ -87,6 +86,9 @@ def collect_data(wb):
         
         all_data["raw"].append(row_data)
 
+    all_data["first_date_seen"] = sorted([wo["post_date"] for wo in all_data["raw"]])[0]
+    all_data["last_date_seen"] = sorted([wo["post_date"] for wo in all_data["raw"]])[-1]
+    
     return all_data
 
 def contains(word, str):
@@ -98,10 +100,10 @@ def contains(word, str):
 def filter_data(data, converting_type=None, lates_only=False, year=None, month=None):
     
     if year != None:
-        data = list(filter(lambda wo: wo["post_date"].year == year, data))
+        data = list(filter(lambda wo: wo["due_date"].year == year, data))
 
     if month != None:
-        data = list(filter(lambda wo: wo["post_date"].month == month, data))
+        data = list(filter(lambda wo: wo["due_date"].month == month, data))
 
     if lates_only:
         data = list(filter(lambda wo: wo["is_late"] == True, data))
@@ -147,8 +149,11 @@ def summarize_late_components(data):
         seen_components_yearly = {}
 
         for num in range(1, 13):
-            month = calendar.month_name[num]
+            # if the month and year are NOT within the date range then continue
+            if not within_date_range(year, num, data["first_date_seen"].date(), data["last_date_seen"].date()):
+                continue
 
+            month = calendar.month_name[num]
             filtered_data = filter_data(raw_data, converting_type=None, lates_only=True, year=year, month=num)
 
             seen_components_monthly = {}
@@ -169,6 +174,29 @@ def summarize_late_components(data):
 
     return stats
 
+# add some number of months to a given datetime.datetime instance
+def add_months(sourcedate, months):
+    month = sourcedate.month - 1 + months
+    year = sourcedate.year + month // 12
+    month = month % 12 + 1
+    return datetime.date(year, month, 1)
+
+# checks to see if a given year,month is within the date range of the data set
+def within_date_range(year, month, start, end):
+    # find date range
+    
+    date_range_start = datetime.date(start.year, start.month, 1)
+    date_range_end = datetime.date(end.year, end.month, 1)
+
+    # set date based on passed in year, month
+    current_date = datetime.date(year, month, 1)
+
+    # compare
+    if current_date < start or current_date > end:
+        return False
+    return True
+
+# summarize the stats for all workorders
 def summarize(data):
     stats = {}
     raw_data = data["raw"]
@@ -192,6 +220,10 @@ def summarize(data):
             }
 
             for num in range(1, 13):
+                # if the month and year are NOT within the date range then continue
+                if not within_date_range(year, num, data["first_date_seen"].date(), data["last_date_seen"].date()):
+                    continue
+
                 month = calendar.month_name[num]
                 stats[year][converting_type]["months"][month] = {
                     "month": month,
@@ -233,6 +265,7 @@ def print_excel_results(wb, results):
         "Late Slit Median Qty",
         "Late Slit Avg Duration",
         "Late Slit Median Duration",
+        "Late Slit Ratio",
 
         "Convert WO Count",
         "Convert Qty",
@@ -244,6 +277,7 @@ def print_excel_results(wb, results):
         "Late Convert Median Qty",
         "Late Convert Avg Duration",
         "Late Convert Median Duration",
+        "Late Convert Ratio",
     ]
 
     for idx, heading in enumerate(HEADINGS):
@@ -254,7 +288,7 @@ def print_excel_results(wb, results):
         for month in results[year]["slit"]["months"]:
             ws.cell(row=1, column=col_count+1).value = f'{month}-{year}'
 
-            skip_count = len(HEADINGS)/2
+            skip_count = len(HEADINGS)/len(CONVERTING_TYPES)
             for idx, converting_type in enumerate(CONVERTING_TYPES):
                 prop = results[year][converting_type]["months"][month]
                 
@@ -273,6 +307,10 @@ def print_excel_results(wb, results):
                 if prop["late_durations"]:
                     ws.cell(row=idx*skip_count + 10, column=col_count+1).value = prop["late_durations"]["avg"]
                     ws.cell(row=idx*skip_count + 11, column=col_count+1).value = prop["late_durations"]["median"]
+
+                if prop["qtys"] and prop["late_qtys"]:
+                    late_ratio = round((prop["late_qtys"]["wo_count"] / prop["qtys"]["wo_count"])*100)
+                    ws.cell(row=idx*skip_count + 12, column=col_count+1).value = str(late_ratio) + "%"
 
             col_count+=1
 
