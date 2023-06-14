@@ -139,6 +139,60 @@ def analyze_late_duration(data):
         "median": late_durations[int(len(late_durations)/2)]
     }
 
+# groups all the WOs between the previous month and the # of months preceeding
+def rolling_range(data, months):
+    # make a date range from the end of last month to 3 months ago
+    end = add_months(datetime.datetime.today(),-1) 
+    start = add_months(end, -(months))
+
+    rolling = [wo for wo in data if wo["post_date"] >= start and wo["post_date"] <= end]
+
+    return rolling
+
+
+# get the stats just for the previous month and compare against the rolling average # of months
+def analyze_last_month(data, rolling_duration):
+    wo_list = data["raw"]
+    stats = {
+        "total": {},
+        "slit": {},
+        "convert": {},
+    }
+
+    # gather all WOs from the month previous to todays date
+    last_month = add_months(datetime.datetime.today(),-1) 
+    last_mo_data = filter_data(wo_list, year=last_month.year, month=last_month.month)
+
+    # gather all WOs from all the months included in the rolling_duration
+    rolling_data = rolling_range(wo_list, rolling_duration)
+    
+    for converting_type in stats.keys():
+        stats[converting_type] = {}
+        for period in [f"{calendar.month_name[last_month.month]}-{last_month.year}", f"Rolling_{rolling_duration}mo"]:
+            # use the last month WOs by default
+            period_data = last_mo_data
+
+            # switch to the rolling WOs for rolling stats
+            if period == "Rolling":
+                period_data = rolling_data
+            
+            qty_stats = analyze_qty(filter_data(period_data, converting_type=converting_type if converting_type != "total" else None, lates_only=False, year=None, month=None))
+
+            late_qty_stats = analyze_qty(filter_data(period_data, converting_type=converting_type if converting_type != "total" else None, lates_only=True, year=None, month=None))
+
+            late_duration_stats = analyze_late_duration(filter_data(period_data, converting_type=converting_type if converting_type != "total" else None, lates_only=True, year=None, month=None))
+            
+            stats[converting_type][period] = {
+                "WO Count": qty_stats["wo_count"],
+                "Total Qty": qty_stats["sum"],
+                "Avg Qty": qty_stats["avg"],
+                "Late WO Count": late_qty_stats["wo_count"],
+                "Late Avg Qty": late_qty_stats["avg"],
+                "Late Avg Duration": late_duration_stats["avg"],
+            }
+
+    return stats
+
 def summarize_late_components(data):
     stats = {}
     raw_data = data["raw"]
@@ -179,7 +233,7 @@ def add_months(sourcedate, months):
     month = sourcedate.month - 1 + months
     year = sourcedate.year + month // 12
     month = month % 12 + 1
-    return datetime.date(year, month, 1)
+    return datetime.datetime(year, month, 1)
 
 # checks to see if a given year,month is within the date range of the data set
 def within_date_range(year, month, start, end):
@@ -482,14 +536,16 @@ def save_workbook(wb, name):
 def console_log_json(data):
     print(json.dumps(data, indent=2, default=str))
 
-def main(workbook_name):
-    wb = open_wb(workbook_name)
+def main(wb_name):
+    wb = open_wb(wb_name)
     data = collect_data(wb)
     results = summarize(data)
     components = summarize_late_components(data)
+    last_month_results = analyze_last_month(data, 3)
     print_to_json(data, "data")
     print_to_json(results, "results")
     print_to_json(components, "components")
+    print_to_json(last_month_results, "last_month")
     print_excel_results(wb, results)
     print_excel_components(wb, components)
     save_workbook(wb, "Workorder Analysis")
