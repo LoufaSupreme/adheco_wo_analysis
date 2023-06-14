@@ -173,7 +173,7 @@ def analyze_last_month(data, rolling_duration):
             period_data = last_mo_data
 
             # switch to the rolling WOs for rolling stats
-            if period == "Rolling":
+            if period == f"Rolling_{rolling_duration}mo":
                 period_data = rolling_data
             
             qty_stats = analyze_qty(filter_data(period_data, converting_type=converting_type if converting_type != "total" else None, lates_only=False, year=None, month=None))
@@ -498,12 +498,9 @@ def print_excel_results(wb, results):
 
 # print the top 3 components with late work orders associated with them
 def print_excel_components(wb, components):
-    START_ROW = 57
-    col_count = 2
-
     ws = wb["Results"]
-    # wb.remove(ws)
-    # ws = create_worksheet(wb, "Components")
+    START_ROW = ws.max_row + 2
+    col_count = 2
 
     # side headings
     ws.cell(row=START_ROW+1, column=1).value = "Component 1"
@@ -530,6 +527,27 @@ def print_excel_components(wb, components):
 
     return wb
 
+def print_excel_last_month(wb, last_month_results):
+    ws = wb["Results"]
+    START_ROW = ws.max_row + 2
+    col_count = 1
+
+    # top headings
+    for idx, period in enumerate(last_month_results["total"].keys()):
+        ws.cell(row=START_ROW, column=col_count+1+idx).value = period
+
+    # stats
+    for i, converting_type in enumerate(last_month_results.keys()):
+        for j, period in enumerate(last_month_results[converting_type].keys()):
+            for k, stat in enumerate(last_month_results[converting_type][period].keys()):
+                # side headings
+                ws.cell(row=START_ROW+1+(k+(i*6)), column=col_count).value = f'{converting_type} {stat}'
+
+                # data summary
+                ws.cell(row=START_ROW+1+(k+(i*6)), column=col_count+j+1).value = last_month_results[converting_type][period][stat]
+    
+    return wb
+
 def save_workbook(wb, name):
     wb.save(f"U:\Josh\JD Working Folder\Adheco General\Warehouse\Converting Analysis/{name}_{datetime.datetime.today().strftime('%d%b%Y')}.xlsx")
 
@@ -548,6 +566,7 @@ def main(wb_name):
     print_to_json(last_month_results, "last_month")
     print_excel_results(wb, results)
     print_excel_components(wb, components)
+    print_excel_last_month(wb, last_month_results)
     save_workbook(wb, "Workorder Analysis")
 
 main('~CR1B29.xlsx')
