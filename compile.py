@@ -142,11 +142,14 @@ def analyze_late_duration(data):
 # groups all the WOs between the previous month and the # of months preceeding
 def rolling_range(data, months):
     # make a date range from the end of last month to 3 months ago
-    end = add_months(datetime.datetime.today(),-1) 
-    start = add_months(end, -(months))
+    end = add_months(datetime.datetime.today(), -1) 
+    # go to the last day of the month
+    end = end.replace(day=calendar.monthrange(end.year, end.month)[1])
+    start = add_months(end, -(months-1))
 
     rolling = [wo for wo in data if wo["post_date"] >= start and wo["post_date"] <= end]
 
+    print_to_json(rolling, "rolling")
     return rolling
 
 
@@ -183,13 +186,20 @@ def analyze_last_month(data, rolling_duration):
             late_duration_stats = analyze_late_duration(filter_data(period_data, converting_type=converting_type if converting_type != "total" else None, lates_only=True, year=None, month=None))
             
             stats[converting_type][period] = {
-                "WO Count": qty_stats["wo_count"],
-                "Total Qty": qty_stats["sum"],
+                "WO Count": qty_stats["wo_count"] if qty_stats else None,
+                "Total Qty": qty_stats["sum"] if qty_stats else None,
                 "Avg Qty": qty_stats["avg"],
-                "Late WO Count": late_qty_stats["wo_count"],
-                "Late Avg Qty": late_qty_stats["avg"],
-                "Late Avg Duration": late_duration_stats["avg"],
+                "Late WO Count": late_qty_stats["wo_count"] if late_qty_stats else None,
+                "Late Avg Qty": late_qty_stats["avg"] if late_qty_stats else None,
+                "Late Avg Duration": late_duration_stats["avg"] if late_duration_stats else None,
             }
+
+            if period == f"Rolling_{rolling_duration}mo":
+                stats[converting_type][period]["WO Count"] = round(qty_stats["wo_count"] / rolling_duration) if qty_stats else None
+
+                stats[converting_type][period]["Total Qty"] = round(qty_stats["sum"] / rolling_duration) if qty_stats else None
+
+                stats[converting_type][period]["Late WO Count"] = round(late_qty_stats["wo_count"] / rolling_duration) if late_qty_stats else None
 
     return stats
 
@@ -233,7 +243,10 @@ def add_months(sourcedate, months):
     month = sourcedate.month - 1 + months
     year = sourcedate.year + month // 12
     month = month % 12 + 1
-    return datetime.datetime(year, month, 1)
+    new_date = datetime.datetime(year, month, 1)
+
+    print(f"adding {months} mo to {sourcedate} = {new_date}")
+    return new_date
 
 # checks to see if a given year,month is within the date range of the data set
 def within_date_range(year, month, start, end):
