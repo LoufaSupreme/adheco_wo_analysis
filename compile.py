@@ -149,7 +149,6 @@ def rolling_range(data, months):
 
     rolling = [wo for wo in data if wo["post_date"] >= start and wo["post_date"] <= end]
 
-    print_to_json(rolling, "rolling")
     return rolling
 
 
@@ -171,7 +170,7 @@ def analyze_last_month(data, rolling_duration):
     
     for converting_type in stats.keys():
         stats[converting_type] = {}
-        for period in [f"{calendar.month_name[last_month.month]}-{last_month.year}", f"Rolling_{rolling_duration}mo"]:
+        for period in [f"{calendar.month_name[last_month.month]} {last_month.year}", f"Rolling_{rolling_duration}mo"]:
             # use the last month WOs by default
             period_data = last_mo_data
 
@@ -186,22 +185,37 @@ def analyze_last_month(data, rolling_duration):
             late_duration_stats = analyze_late_duration(filter_data(period_data, converting_type=converting_type if converting_type != "total" else None, lates_only=True, year=None, month=None))
             
             stats[converting_type][period] = {
-                "WO Count": qty_stats["wo_count"] if qty_stats else None,
-                "Total Qty": qty_stats["sum"] if qty_stats else None,
-                "Avg Qty": qty_stats["avg"],
-                "Late WO Count": late_qty_stats["wo_count"] if late_qty_stats else None,
-                "Late Avg Qty": late_qty_stats["avg"] if late_qty_stats else None,
-                "Late Avg Duration": late_duration_stats["avg"] if late_duration_stats else None,
+                "WO Count": qty_stats["wo_count"] if qty_stats else 0,
+                "Total Qty": qty_stats["sum"] if qty_stats else 0,
+                "Avg Qty": qty_stats["avg"] if qty_stats else 0,
+                "Late WO Count": late_qty_stats["wo_count"] if late_qty_stats else 0,
+                "Late Avg Qty": late_qty_stats["avg"] if late_qty_stats else 0,
+                "Late Avg Duration": late_duration_stats["avg"] if late_duration_stats else 0,
             }
 
             if period == f"Rolling_{rolling_duration}mo":
-                stats[converting_type][period]["WO Count"] = round(qty_stats["wo_count"] / rolling_duration) if qty_stats else None
+                stats[converting_type][period]["WO Count"] = round(qty_stats["wo_count"] / rolling_duration) if qty_stats else 0
 
-                stats[converting_type][period]["Total Qty"] = round(qty_stats["sum"] / rolling_duration) if qty_stats else None
+                stats[converting_type][period]["Total Qty"] = round(qty_stats["sum"] / rolling_duration) if qty_stats else 0
 
-                stats[converting_type][period]["Late WO Count"] = round(late_qty_stats["wo_count"] / rolling_duration) if late_qty_stats else None
+                stats[converting_type][period]["Late WO Count"] = round(late_qty_stats["wo_count"] / rolling_duration) if late_qty_stats else 0
 
+        stats[converting_type]["%_change"] = {
+            "WO Count": calc_percent_change(stats[converting_type][f"{calendar.month_name[last_month.month]} {last_month.year}"]["WO Count"], stats[converting_type][f"Rolling_{rolling_duration}mo"]["WO Count"]),
+            "Total Qty": calc_percent_change(stats[converting_type][f"{calendar.month_name[last_month.month]} {last_month.year}"]["Total Qty"], stats[converting_type][f"Rolling_{rolling_duration}mo"]["Total Qty"]),
+            "Avg Qty": calc_percent_change(stats[converting_type][f"{calendar.month_name[last_month.month]} {last_month.year}"]["Avg Qty"], stats[converting_type][f"Rolling_{rolling_duration}mo"]["Avg Qty"]),
+            "Late WO Count": calc_percent_change(stats[converting_type][f"{calendar.month_name[last_month.month]} {last_month.year}"]["Late WO Count"], stats[converting_type][f"Rolling_{rolling_duration}mo"]["Late WO Count"]),
+            "Late Avg Qty": calc_percent_change(stats[converting_type][f"{calendar.month_name[last_month.month]} {last_month.year}"]["Late Avg Qty"], stats[converting_type][f"Rolling_{rolling_duration}mo"]["Late Avg Qty"]),
+            "Late Avg Duration": calc_percent_change(stats[converting_type][f"{calendar.month_name[last_month.month]} {last_month.year}"]["Late Avg Duration"], stats[converting_type][f"Rolling_{rolling_duration}mo"]["Late Avg Duration"]),
+        }
+
+    print_to_json(stats, "last_month")
     return stats
+
+def calc_percent_change(a, b):
+    if b == 0:
+        return None
+    return round((a - b) / b * 100, 1)
 
 def summarize_late_components(data):
     stats = {}
@@ -245,7 +259,6 @@ def add_months(sourcedate, months):
     month = month % 12 + 1
     new_date = datetime.datetime(year, month, 1)
 
-    print(f"adding {months} mo to {sourcedate} = {new_date}")
     return new_date
 
 # checks to see if a given year,month is within the date range of the data set
