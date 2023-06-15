@@ -17,12 +17,12 @@
             "Late Avg Duration": 20.0
         },
         "%_change": {
-            "WO Count": -25,
-            "Total Qty": 77,
-            "Avg Qty": 136,
-            "Late WO Count": 81,
-            "Late Avg Qty": 60,
-            "Late Avg Duration": 20
+            "WO Count": -25.0,
+            "Total Qty": 76.7,
+            "Avg Qty": 135.6,
+            "Late WO Count": 81.2,
+            "Late Avg Qty": 59.9,
+            "Late Avg Duration": 20.0
         }
     },
     "slit": {
@@ -43,12 +43,12 @@
             "Late Avg Duration": 18.0
         },
         "%_change": {
-            "WO Count": -24,
-            "Total Qty": -9,
-            "Avg Qty": 19,
-            "Late WO Count": 62,
-            "Late Avg Qty": 48,
-            "Late Avg Duration": 22
+            "WO Count": -23.8,
+            "Total Qty": -8.6,
+            "Avg Qty": 18.8,
+            "Late WO Count": 61.5,
+            "Late Avg Qty": 47.9,
+            "Late Avg Duration": 22.2
         }
     },
     "convert": {
@@ -69,12 +69,12 @@
             "Late Avg Duration": 30.0
         },
         "%_change": {
-            "WO Count": -30,
-            "Total Qty": 173,
-            "Avg Qty": 292,
-            "Late WO Count": 167,
-            "Late Avg Qty": 0,
-            "Late Avg Duration": 0
+            "WO Count": -30.0,
+            "Total Qty": 172.8,
+            "Avg Qty": 291.9,
+            "Late WO Count": 166.7,
+            "Late Avg Qty": 0.0,
+            "Late Avg Duration": 0.0
         }
     }
 }
