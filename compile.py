@@ -214,7 +214,7 @@ def analyze_last_month(data, rolling_duration):
 def calc_percent_change(a, b):
     if b == 0:
         return None
-    return round((a - b) / b * 100, 1)
+    return round((a - b) / b, 3)
 
 def summarize_late_components(data):
     stats = {}
