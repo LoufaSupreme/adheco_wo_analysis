@@ -524,14 +524,15 @@ def print_excel_annual_summaries(wb, results):
             # "Late Median Duration",
             ws.cell(row=START_ROW+20, column=col_count+1).value = results[year]["slit"]["late_durations"]["median"]
        
-        # "Convert WO Count",
-        ws.cell(row=START_ROW+21, column=col_count+1).value = results[year]["convert"]["qtys"]["wo_count"]
-        # "Convert Qty",
-        ws.cell(row=START_ROW+22, column=col_count+1).value = results[year]["convert"]["qtys"]["sum"]
-        # "Convert Avg Qty",
-        ws.cell(row=START_ROW+23, column=col_count+1).value = results[year]["convert"]["qtys"]["avg"]
-        # "Convert Median Qty",
-        ws.cell(row=START_ROW+24, column=col_count+1).value = results[year]["convert"]["qtys"]["median"]
+        if results[year]["convert"]["qtys"]:
+            # "Convert WO Count",
+            ws.cell(row=START_ROW+21, column=col_count+1).value = results[year]["convert"]["qtys"]["wo_count"]
+            # "Convert Qty",
+            ws.cell(row=START_ROW+22, column=col_count+1).value = results[year]["convert"]["qtys"]["sum"]
+            # "Convert Avg Qty",
+            ws.cell(row=START_ROW+23, column=col_count+1).value = results[year]["convert"]["qtys"]["avg"]
+            # "Convert Median Qty",
+            ws.cell(row=START_ROW+24, column=col_count+1).value = results[year]["convert"]["qtys"]["median"]
 
         if results[year]["convert"]["late_qtys"]:
             # "Late WO Count",
@@ -627,5 +628,5 @@ def main(wb_name):
     print_excel_last_month(wb, last_month_results)
     save_workbook(wb, "Workorder Analysis")
 
-main('~CR1B29.xlsx')
+main('~CRF096_December2024.xlsx')
 
